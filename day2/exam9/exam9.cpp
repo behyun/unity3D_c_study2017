@@ -147,12 +147,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다.
-			//투명브러시에 대한 예제입니다.
+			
 			HPEN nullPen, oldPen;
 			HBRUSH myBrush, oldBrush;
 			myBrush = CreateSolidBrush(RGB(255, 0, 0));
 			oldBrush =(HBRUSH)SelectObject(hdc, myBrush);
-			
+			//투명펜
 			nullPen = (HPEN)GetStockObject(NULL_PEN);
 			oldPen = (HPEN)SelectObject(hdc, nullPen);
 
@@ -162,7 +162,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			SelectObject(hdc, oldBrush);
 			DeleteObject(myBrush);
 
-
+			//투명 브러쉬적용
 			myBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
 			oldBrush = (HBRUSH)SelectObject(hdc, myBrush);
 
