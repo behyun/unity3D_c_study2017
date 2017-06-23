@@ -166,8 +166,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		hDC = GetDC(hWnd);
 
-		Rectangle(hDC, 100, 100+20, 300, 150+20);
-		TextOut(hDC, 120, 120+20, szBuf, wcslen(szBuf)-1);
+		Rectangle(hDC, 100, 100, 300, 150);
+		TextOut(hDC, 120, 120, szBuf, wcslen(szBuf)-1);
 		
 		ReleaseDC(hWnd, hDC);
 
