@@ -172,10 +172,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		myBrush = CreateSolidBrush(RGB(rand() % 256, rand() % 256, rand() % 256));
 		oldBrush = (HBRUSH)SelectObject(hDC, myBrush);
 
+		//·£´ý Ææ
+		HPEN myPen, oldPen;
+		myPen = CreatePen(PS_SOLID, 3, RGB(rand() % 256, rand() % 256, rand() % 256));
+		oldPen = (HPEN)SelectObject(hDC, myPen);
+
 		//Rectangle(hDC, xPos, yPos, xPos + xSize, yPos + ySize); //»ç°¢Çü
-		Ellipse(hDC, xPos, yPos, xPos + xSize, yPos + ySize); //¿ø
+		//Ellipse(hDC, xPos, yPos, xPos + xSize, yPos + ySize); //¿ø
+		LineTo(hDC, xPos + xSize, yPos + ySize); //¼±
 		
-		
+		SelectObject(hDC, oldPen);
+		DeleteObject(myPen);
 		SelectObject(hDC, oldBrush);
 		DeleteObject(myBrush);
 
