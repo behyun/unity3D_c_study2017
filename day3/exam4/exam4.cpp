@@ -172,8 +172,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		myBrush = CreateSolidBrush(RGB(rand() % 256, rand() % 256, rand() % 256));
 		oldBrush = (HBRUSH)SelectObject(hDC, myBrush);
 
-		Rectangle(hDC, xPos, yPos, xPos + xSize, yPos + ySize);
-
+		//Rectangle(hDC, xPos, yPos, xPos + xSize, yPos + ySize); //사각형
+		Ellipse(hDC, xPos, yPos, xPos + xSize, yPos + ySize); //원
+		
+		
 		SelectObject(hDC, oldBrush);
 		DeleteObject(myBrush);
 
