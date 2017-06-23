@@ -151,12 +151,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 DestroyWindow(hWnd);
                 break;
 			case 3001:
+			{
 				TCHAR szBuf[256];
 				GetWindowText(hEdit, szBuf, 256);
 				SetWindowText(hEdit, L"");
+
 				OutputDebugString(szBuf);
+
+				HDC hDC = GetDC(hWnd);
+
+				TCHAR szBuf2[256];
+				wsprintf(szBuf2, L"æ»≥Á«œººø‰ %s ¥‘", szBuf);
+				TextOut(hDC, 10, 200, szBuf2, wcslen(szBuf2));
+
+				ReleaseDC(hWnd, hDC);
+			}
 				break;
-            default:
+			default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
         }
